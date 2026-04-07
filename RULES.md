@@ -15,43 +15,46 @@ Project Structure
 
 Folder Structure
 
+```bash
 src/
 │
-├── app/ <!-- Next.js routes (App Router) -->
+├── app/                        # Next.js routes (App Router)
 │   ├── layout.tsx
 │   ├── page.tsx
 │   │
 │   ├── page1/
-│   │   ├── page1.tsx
+│   │   ├── page.tsx
 │   │   └── page1.module.css
 │   │
 │   └── page2/
-│       ├── page2.tsx
+│       ├── page.tsx
 │       └── page2.module.css
 │
 ├── components/
 │   │   
-│   ├── global/  <!-- global components -->
+│   ├── global/                 # global components
 │   │   ├── Button/
 │   │   │   ├── Button.tsx
 │   │   │   ├── Button.module.css
 │   │   │   └── SmallerButton/
 │   │   │       ├── SmallerButton.tsx
-│   │   │       └── SmallerButton.module.css <!-- note 0* -->
+│   │   │       └── SmallerButton.module.css # note0
 │   │   │
 │   │   ├── Card/ 
 │   │   │   ├── Card.tsx
 │   │   │   └── Card.module.css
 │   │   
-│   │   
-│   ├── page1/ <!-- page components -->
+│   ├── page1/                  # page components
 │   │   ├── Name1.tsx
 │   │   └── Name1.module.css
-│   │
+│
 ├── styles/
 │   └── globals.css
 
-<!-- note 0* if the child components is small parent css to be imported instead of creating new one -->
+# note0:
+# if child component is very small, reuse parent CSS instead of creating new one
+```
+
 
 
 Component Librrary
