@@ -15,7 +15,44 @@ Project Structure
 
 Folder Structure
 
- <!-- TODO: marko -->
+src/
+│
+├── app/ <!-- Next.js routes (App Router) -->
+│   ├── layout.tsx
+│   ├── page.tsx
+│   │
+│   ├── page1/
+│   │   ├── page1.tsx
+│   │   └── page1.module.css
+│   │
+│   └── page2/
+│       ├── page2.tsx
+│       └── page2.module.css
+│
+├── components/
+│   │   
+│   ├── global/  <!-- global components -->
+│   │   ├── Button/
+│   │   │   ├── Button.tsx
+│   │   │   ├── Button.module.css
+│   │   │   └── SmallerButton/
+│   │   │       ├── SmallerButton.tsx
+│   │   │       └── SmallerButton.module.css <!-- note 0* -->
+│   │   │
+│   │   ├── Card/ 
+│   │   │   ├── Card.tsx
+│   │   │   └── Card.module.css
+│   │   
+│   │   
+│   ├── page1/ <!-- page components -->
+│   │   ├── Name1.tsx
+│   │   └── Name1.module.css
+│   │
+├── styles/
+│   └── globals.css
+
+<!-- note 0* if the child components is small parent css to be imported instead of creating new one -->
+
 
 Component Librrary
 chakra-ui
