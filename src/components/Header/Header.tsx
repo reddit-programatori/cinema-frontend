@@ -7,7 +7,7 @@ export const Header = () => {
   return (
     <header className="flex justify-around items-center py-2.5">
       <Link href="/">
-        <Image src="/logo.svg" alt="logo" width={91} height={91} />
+        <Image src="/logo.svg" alt="logo" width={96} height={96} />
       </Link>
       <Nav />
       {/* // TODO - Added div, just to simulate design. HeaderActions should be done in next ticket */}
