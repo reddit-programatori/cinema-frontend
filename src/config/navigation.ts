@@ -20,4 +20,4 @@ export const NAV_LINKS: LinkProp[] = [
     label: "Žanrovi",
     href: "#",
   },
-] as const;
+];
