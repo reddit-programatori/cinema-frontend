@@ -1,8 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import type { Engine } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
 export const ParticlesBackground = () => {

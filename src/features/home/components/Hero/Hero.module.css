@@ -8,7 +8,7 @@
 
   position: relative;
 
-  & canvas {
+  canvas {
     position: absolute;
   }
 }
@@ -21,7 +21,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1.75rem;
 
   margin: 0 auto;
 

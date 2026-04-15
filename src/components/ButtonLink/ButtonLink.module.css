@@ -33,7 +33,7 @@
 
 .ghost {
   background-color: transparent;
-  color: var(--primary);
+  color: #fff;
 }
 .ghost:hover {
   background-color: var(--color-ghost-hover);
@@ -41,14 +41,13 @@
 
 .outline {
   background-color: transparent;
-  color: var(--primary);
+  color: #fff;
   border: 1px solid var(--primary);
   -webkit-box-shadow: 0px 0px 16px 4px var(--primary);
   box-shadow: 0px 0px 16px 4px var(--primary);
 }
 .outline:hover {
   background-color: var(--primary);
-  color: #fff;
 }
 
 /* Sizes */
