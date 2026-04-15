@@ -6,8 +6,8 @@ import { LinkProp } from "@/config/navigation";
 
 export const NavLink = ({ href, label }: LinkProp) => {
   return (
-    <li className={styles.item}>
-      <Link href={href} className="flex items-center gap-1 hover:text-blue-400 transition">
+    <li>
+      <Link href={href} className={styles.item}>
         <span>{label}</span>
         <IconArrowUpRight />
       </Link>
