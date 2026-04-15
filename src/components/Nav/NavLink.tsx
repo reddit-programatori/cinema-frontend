@@ -1,5 +1,5 @@
 import Link from "next/link";
-import IconArrowUpRight from "@/ui/icons/arrow-up-right.svg";
+import IconArrowUpRight from "@/components/ui/icons/arrow-up-right.svg";
 import styles from "./NavLink.module.css";
 
 import { LinkProp } from "@/config/navigation";
