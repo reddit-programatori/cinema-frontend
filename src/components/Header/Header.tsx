@@ -14,7 +14,7 @@ export const Header = () => {
       </Link>
       <Nav className={styles.nav} />
       <div className={styles.actions}>
-        <HeaderActions className={styles.headerActions} />
+        <HeaderActions className={styles.authLinks} />
         <HamburgerButton />
       </div>
     </header>
