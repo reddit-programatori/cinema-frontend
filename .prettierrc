@@ -9,6 +9,5 @@
   "arrowParens": "always",
   "bracketSpacing": true,
   "bracketSameLine": false,
-  "endOfLine": "lf",
-  "overrides": [{ "files": "*.css", "options": { "tabWidth": 4 } }]
+  "endOfLine": "lf"
 }
