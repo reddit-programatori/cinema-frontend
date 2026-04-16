@@ -1,10 +1,15 @@
 import Link from "next/link";
 
-export const HeaderActions = () => {
+type Props = {
+  className?: string;
+};
+export const HeaderActions = ({ className }: Props) => {
   return (
-    <div>
+    <>
       <input type="text" placeholder="Pretraga" />
-      <Link href="/sign-in">Prijavi se</Link>
-    </div>
+      <div className={className}>
+        <Link href="/sign-in">Prijavi se</Link>
+      </div>
+    </>
   );
 };
