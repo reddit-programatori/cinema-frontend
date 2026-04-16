@@ -63,14 +63,14 @@
 
 .subtitle {
   color: var(--text);
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
 }
 
 .socialButtons {
   display: flex;
   flex-direction: row;
   gap: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
 }
 
 .socialBtn {
@@ -92,7 +92,7 @@
 .divider {
   text-align: center;
   color: var(--text);
-  margin-bottom: 25px;
+  margin-bottom: 1rem;
   position: relative;
   height: 40px;
 }
