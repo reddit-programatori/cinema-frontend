@@ -7,7 +7,8 @@ type Props = {
 export const HeaderActions = ({ className }: Props) => {
   return (
     <>
-      <input type="text" placeholder="Pretraga" />
+      <input type="search" placeholder="Pretraga" />
+      {/* // TODO: SignIn component */}
       <div className={className}>
         <Link href="/sign-in">Prijavi se</Link>
       </div>
