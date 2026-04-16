@@ -1,0 +1,80 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row .field {
+  flex: 1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field input {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--main);
+  color: var(--white);
+  outline: none;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+  font-size: 14px;
+}
+
+.checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--main);
+  background: transparent;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.checkbox input[type="checkbox"]:checked {
+  background: var(--backgroundGray);
+}
+
+.checkbox input[type="checkbox"]:checked::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--main);
+}
+
+.submitBtn {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--main);
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 100, 255, 0.15);
+  transition: 0.3s;
+}
+
+.submitBtn:hover {
+  box-shadow: 0 0 25px rgba(0, 100, 255, 0.3);
+}
+
+@media (max-width: 1000px) {
+  .row {
+    flex-direction: column;
+  }
+}
