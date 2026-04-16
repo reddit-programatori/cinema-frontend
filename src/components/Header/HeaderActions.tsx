@@ -3,6 +3,7 @@ import Link from "next/link";
 type Props = {
   className?: string;
 };
+
 export const HeaderActions = ({ className }: Props) => {
   return (
     <>

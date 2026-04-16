@@ -9,7 +9,7 @@ export const NavLink = ({ href, label }: LinkProp) => {
     <li>
       <Link href={href} className={styles.item}>
         <span>{label}</span>
-        <IconArrowUpRight />
+        <IconArrowUpRight aria-hidden="true" />
       </Link>
     </li>
   );
