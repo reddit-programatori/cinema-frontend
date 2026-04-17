@@ -12,7 +12,7 @@ export const HamburgerItems = () => {
     <div className={`${styles.hamburgerMenu} ${isMenuOpen ? styles.open : styles.closed}`}>
       <nav className={styles.mobileNav} aria-label="Mobile navigation">
         <NavItems />
-        {/* // TODO: Ovo treba da bude SignIn komponenta */}
+        {/* // TODO: This should be a SignIn component */}
         <div className={styles.authLinksMobile}>
           <Link href="/sign-in">Prijavi se</Link>
         </div>

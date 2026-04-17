@@ -1,3 +1,5 @@
+"use client";
+
 import IconHamburger from "@/components/ui/icons/hamburger-menu.svg";
 import styles from "./HamburgerButton.module.css";
 import { useHamburger } from "@/app/providers/HamburgerProvider";
