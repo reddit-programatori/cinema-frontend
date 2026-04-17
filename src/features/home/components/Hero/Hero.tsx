@@ -10,9 +10,9 @@ export const Hero = () => {
       <div className={styles.hero}>
         <h1>Tvoj grad. Tvoj film. Tvoje sedište.</h1>
         <p>Rezerviši mesto za film u par klikova.</p>
-        <ButtonLink href="#" variant="outline">
+        <ButtonLink href="/sign-in" variant="outline">
           Prijava
-          <IconArrowUpRight />
+          <IconArrowUpRight aria-hidden="true" />
         </ButtonLink>
       </div>
     </section>

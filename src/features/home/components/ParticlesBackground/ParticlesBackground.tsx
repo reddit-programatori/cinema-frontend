@@ -17,6 +17,7 @@ export const ParticlesBackground = () => {
 
   return (
     <Particles
+      id="tsparticles-background"
       options={{
         background: {
           color: { value: "transparent" },

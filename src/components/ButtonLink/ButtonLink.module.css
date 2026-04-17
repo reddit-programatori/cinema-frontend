@@ -20,6 +20,22 @@
   cursor: not-allowed;
 }
 
+.base:disabled:focus-visible,
+.base:disabled:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.base:focus {
+  outline: 2px solid var(--white, currentColor);
+  outline-offset: 2px;
+}
+
+.base:focus-visible {
+  outline: 2px solid var(--white, currentColor);
+  outline-offset: 2px;
+}
+
 /* Variants */
 .primary {
   background-color: var(--main);

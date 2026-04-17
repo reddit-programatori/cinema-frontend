@@ -41,7 +41,7 @@ export const ButtonLink = ({
   return (
     <Link
       href={href}
-      className={`${className} ${styles.base} ${variantStyles[variant]} ${sizeStyles[size]}`}
+      className={`${className ?? ""} ${styles.base} ${variantStyles[variant]} ${sizeStyles[size]}`}
       aria-disabled={disabled}
       tabIndex={disabled ? -1 : undefined}
     >

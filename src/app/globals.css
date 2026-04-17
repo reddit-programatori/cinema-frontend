@@ -2,7 +2,7 @@
 
 :root {
   --main: #6191d0c5;
-  --background: #0a0a0a;
+
   --backgroundGray: #161616;
   --backGroundBlue: #001228;
   --text: #aeaeae;
@@ -25,12 +25,10 @@
     --main: #6191d0;
     --background: #0a0a0a;
     --backgroundGray: #161616;
-    --backGroundBlue: #001228;
+    --backgroundBlue: #001228;
     --white: #e5e5e5;
     --text: #aeaeae;
     --darkText: #8a8a8a;
-
-    --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
