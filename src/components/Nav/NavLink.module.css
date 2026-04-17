@@ -1,0 +1,10 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.item:hover {
+  color: var(--primary);
+}
