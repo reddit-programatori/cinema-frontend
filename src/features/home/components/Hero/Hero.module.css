@@ -1,6 +1,6 @@
 .wrapper {
   height: 100dvh;
-  background-color: #000;
+  background-color: var(--background);
   background-image: url("../../../../../public/home/lights.png");
   background-repeat: no-repeat;
   background-position: center;

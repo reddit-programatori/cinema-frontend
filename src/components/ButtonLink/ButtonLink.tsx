@@ -3,10 +3,10 @@ import styles from "./ButtonLink.module.css";
 
 type Variant = "primary" | "secondary" | "ghost" | "outline";
 type ButtonSize = "sm" | "md" | "lg";
-// TODO: When the need arises to create our button component this prop will be reusable.
+// ! When the need arises to create our button component this prop will be reusable.
 type BaseProps = {
   variant: Variant;
-  size?: "sm" | "md" | "lg";
+  size?: ButtonSize;
   disabled?: boolean;
   children: React.ReactNode;
   className?: string;
