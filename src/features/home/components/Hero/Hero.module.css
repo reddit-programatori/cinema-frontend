@@ -1,0 +1,50 @@
+.wrapper {
+  height: 100dvh;
+  background-color: var(--background);
+  background-image: url("../../../../../public/home/lights.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  position: relative;
+
+  canvas {
+    position: absolute;
+  }
+}
+
+.hero {
+  max-width: 700px;
+  height: inherit;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.75rem;
+
+  margin: 0 auto;
+
+  text-align: center;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background: linear-gradient(0deg, rgba(83, 83, 83, 0.7) 5%, rgba(255, 255, 255, 1) 35%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    background-size: contain;
+  }
+}
