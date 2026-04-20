@@ -12,7 +12,7 @@ import { HamburgerButton } from "../Hamburger/HamburgerButton/HamburgerButton";
 export const Header = () => {
   return (
     <HamburgerProvider>
-      <header className="top-0 sticky px-4 py-2.5 w-full">
+      <header className="top-0 z-50 fixed bg-black px-4 py-2.5 w-full">
         <div className="flex justify-between items-center">
           <Link href="/">
             <Image
@@ -28,7 +28,7 @@ export const Header = () => {
             <NavItems />
           </nav>
           <div className={styles.actions}>
-            <HeaderActions className={styles.authLinksDesktop} />
+            <HeaderActions />
             <HamburgerButton />
           </div>
         </div>

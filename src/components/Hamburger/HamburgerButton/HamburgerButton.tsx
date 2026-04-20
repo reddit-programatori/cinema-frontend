@@ -1,11 +1,12 @@
 "use client";
 
 import IconHamburger from "@/components/ui/icons/hamburger-menu.svg";
+import IconCross from "@/components/ui/icons/icon-cross.svg";
 import styles from "./HamburgerButton.module.css";
 import { useHamburger } from "@/app/providers/HamburgerProvider";
 
 export const HamburgerButton = () => {
-  const { toggleMenu } = useHamburger();
+  const { toggleMenu, isMenuOpen } = useHamburger();
 
   return (
     <button
@@ -14,7 +15,7 @@ export const HamburgerButton = () => {
       aria-controls="primary-navigation"
       onClick={toggleMenu}
     >
-      <IconHamburger aria-hidden="true" />
+      {isMenuOpen ? <IconCross aria-hidden="true" /> : <IconHamburger aria-hidden="true" />}
     </button>
   );
 };

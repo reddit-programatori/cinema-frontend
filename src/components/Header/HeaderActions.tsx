@@ -1,17 +1,13 @@
-import Link from "next/link";
+import { Link } from "../Link/Link";
 
-type Props = {
-  className?: string;
-};
-
-export const HeaderActions = ({ className }: Props) => {
+export const HeaderActions = () => {
   return (
     <>
       <input type="search" placeholder="Pretraga" />
       {/* // TODO: SignIn component */}
-      <div className={className}>
-        <Link href="/sign-in">Prijavi se</Link>
-      </div>
+      <Link variant="ghost" href="/sign-in">
+        Prijavi se
+      </Link>
     </>
   );
 };

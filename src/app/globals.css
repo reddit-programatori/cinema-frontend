@@ -7,6 +7,7 @@
   --backGroundBlue: #001228;
   --text: #aeaeae;
   --darkText: #8a8a8a;
+  --textLink: #dddddd;
 
   /* old colors */
   --background: #ffffff;
@@ -30,6 +31,7 @@
     --backgroundBlue: #001228;
     --white: #e5e5e5;
     --text: #aeaeae;
+    --textLink: #dddddd;
     --darkText: #8a8a8a;
     --foreground: #ededed;
   }
