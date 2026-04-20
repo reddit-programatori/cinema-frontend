@@ -1,13 +1,13 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import FormLogin from "@/components/loginComp/formLogin";
+import FormRegister from "@/components/registerComp/formRegister";
 
-export default function Login() {
+export default function Register() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.leftPanel}>
-          <p className={styles.welcome}>DOBRODOŠAO NAZAD</p>
+          <p className={styles.welcome}>NOVI NALOG</p>
           <h1 className={styles.heading}>
             Tvoj grad.
             <br />
@@ -15,14 +15,45 @@ export default function Login() {
             <br />
             Tvoje sedište.
           </h1>
-          <p className={styles.description}>
-            Rezerviši mesto za film u par klikova. Sve bioskope. Jedan nalog.
-          </p>
+          <p className={styles.description}>Registruj se i nikada više ne čekaj u redu za karte.</p>
+
+          <div className={styles.pointers}>
+            <div className={styles.pointer}>
+              <Image
+                className={styles.checkMark}
+                alt="arrow"
+                src={"/check.svg"}
+                width={25}
+                height={25}
+              />
+              <span>Rezervacija za par klikova.</span>
+            </div>
+            <div className={styles.pointer}>
+              <Image
+                className={styles.checkMark}
+                alt="arrow"
+                src={"/check.svg"}
+                width={25}
+                height={25}
+              />
+              <span>Istorija svih tvojih karata.</span>
+            </div>
+            <div className={styles.pointer}>
+              <Image
+                className={styles.checkMark}
+                alt="arrow"
+                src={"/check.svg"}
+                width={25}
+                height={25}
+              />
+              <span>AI preporuke po tvom ukusu.</span>
+            </div>
+          </div>
         </div>
 
         <div className={styles.rightPanel}>
-          <h2 className={styles.title}>Prijavi se</h2>
-          <p className={styles.subtitle}>Nastavi tamo gde si stao.</p>
+          <h2 className={styles.title}>Kreiraj nalog.</h2>
+          <p className={styles.subtitle}>Besplatno. Zauvek.</p>
 
           <div className={styles.socialButtons}>
             <button type="button" className={styles.socialBtn}>
@@ -61,11 +92,11 @@ export default function Login() {
             </div>
           </div>
 
-          <FormLogin />
+          <FormRegister />
 
-          <p className={styles.register}>
-            Nemate nalog? <a href="/register">Registrujte se</a>
-          </p>
+          <a href="/login" className={styles.register}>
+            Nazad na stranicu za prijavu
+          </a>
         </div>
       </div>
     </div>
