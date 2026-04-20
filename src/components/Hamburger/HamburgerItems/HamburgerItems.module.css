@@ -1,0 +1,34 @@
+.hamburgerMenu {
+  display: none;
+
+  background: rgba(255, 0, 0, 0.5);
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  .hamburgerMenu {
+    display: block;
+    visibility: visible;
+    transition: 0.5s height ease-in-out;
+  }
+  .closed {
+    height: 0;
+  }
+  .open {
+    height: auto;
+  }
+
+  .mobileNav {
+    display: block;
+  }
+
+  /* todo: Move to SignIn component */
+  .authLinksMobile {
+    display: block;
+  }
+}
