@@ -1,5 +1,5 @@
-import Link from "next/link";
-import styles from "./ButtonLink.module.css";
+import NextLink from "next/link";
+import styles from "./Link.module.css";
 
 type Variant = "primary" | "secondary" | "ghost" | "outline";
 type ButtonSize = "sm" | "md" | "lg";
@@ -30,22 +30,15 @@ interface Props extends BaseProps {
   children: React.ReactNode;
 }
 
-export const ButtonLink = ({
-  href,
-  children,
-  size = "md",
-  variant,
-  disabled,
-  className,
-}: Props) => {
+export const Link = ({ href, children, size = "md", variant, disabled, className }: Props) => {
   return (
-    <Link
+    <NextLink
       href={href}
       className={`${className ?? ""} ${styles.base} ${variantStyles[variant]} ${sizeStyles[size]}`}
       aria-disabled={disabled}
       tabIndex={disabled ? -1 : undefined}
     >
       {children}
-    </Link>
+    </NextLink>
   );
 };
