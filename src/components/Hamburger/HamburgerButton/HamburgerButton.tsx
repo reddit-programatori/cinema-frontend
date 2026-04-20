@@ -11,7 +11,8 @@ export const HamburgerButton = () => {
   return (
     <button
       className={styles.hamburger}
-      aria-label="Open menu"
+      aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+      aria-expanded={isMenuOpen}
       aria-controls="primary-navigation"
       onClick={toggleMenu}
     >
