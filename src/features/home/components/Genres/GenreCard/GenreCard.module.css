@@ -33,6 +33,11 @@
   justify-content: center;
 }
 
+.card:hover .icon {
+  transition: filter 0.3s ease-in-out;
+  filter: drop-shadow(0 0 0.5rem #fff);
+}
+
 .genreName {
   font-size: 1.5rem;
   font-weight: bold;
