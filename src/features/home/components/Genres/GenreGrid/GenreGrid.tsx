@@ -1,4 +1,5 @@
 import { GenreCard } from "../GenreCard/GenreCard";
+import styles from "./GenreGrid.module.css";
 
 type Props = {
   id: string;
@@ -8,14 +9,14 @@ type Props = {
 
 export const GenreGrid = ({ genres }: { genres: Props[] }) => {
   return (
-    <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:col-span-2">
-      {genres.map((genre, index) => (
+    <div className={styles.wrapper}>
+      {genres.map((genre) => (
         <GenreCard
           key={genre.id}
           genreName={genre.name}
           movieCount={genre.movieCount}
           id={genre.id}
-          className={index < 2 ? "md:col-span-2" : ""}
+          className={styles.item}
         />
       ))}
     </div>
