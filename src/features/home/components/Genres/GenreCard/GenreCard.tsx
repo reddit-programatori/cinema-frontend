@@ -1,6 +1,8 @@
 import { pluralizeMovies } from "@/utils/pluralizeCount";
 import styles from "./GenreCard.module.css";
 
+import IconCircleArrow from "@/components/ui/icons/circle-arrow.svg";
+
 import IconAction from "../icons/sword.svg";
 import IconPainting from "../icons/ic_sharp-color-lens.svg";
 import IconComedy from "../icons/glyphs-poly_laugh-squint.svg";
@@ -10,6 +12,7 @@ import IconSciFi from "../icons/streamline-ultimate_space-rocket-earth-bold.svg"
 import IconRomance from "../icons/mdi_heart.svg";
 import IconThriller from "../icons/tabler_search-filled.svg";
 import { ReactNode } from "react";
+import Link from "next/link";
 
 type TMPProps = {
   className?: string;
@@ -18,16 +21,23 @@ type TMPProps = {
   id: string;
 };
 export const GenreCard = ({ className, genreName, movieCount, id }: TMPProps) => {
-  const { color, icon } = genreConfigMap[id];
+  const { color, icon } = genreConfigMap[id] ?? { color: "#333333", icon: null };
 
   return (
-    <article className={`${styles.card} ${className || ""}`} style={{ backgroundColor: color }}>
-      <div className={styles.linkArrow}>Strelica za link</div>
-      <div className={styles.icon}>{icon}</div>
-      <div className="footer">
-        <h3 className={styles.genreName}>{genreName}</h3>
-        <div className={styles.movieCount}>{pluralizeMovies(movieCount)} u bioskopu</div>
-      </div>
+    <article
+      className={`${styles.card} ${className || ""}`}
+      style={{ "--genre-color": color } as React.CSSProperties} //as React.CSSProperties is TypeScript hack. CSS custom properties are not part of standard CSS properties, pausing TypeScript from complaining about it.
+    >
+      <Link href={`/genres/${id}`} className={styles.linkOverlay}>
+        <div className={styles.linkArrow}>
+          <IconCircleArrow />
+        </div>
+        <div className={styles.icon}>{icon}</div>
+        <div className="footer">
+          <h3 className={styles.genreName}>{genreName}</h3>
+          <div className={styles.movieCount}>{pluralizeMovies(movieCount)} u bioskopu</div>
+        </div>
+      </Link>
     </article>
   );
 };

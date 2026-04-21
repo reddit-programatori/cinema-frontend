@@ -1,6 +1,16 @@
 .card {
-  background-color: red;
+  background-color: var(--genre-color);
   padding: 1rem;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0 1rem var(--genre-color);
+  }
 }
 
 .linkArrow {

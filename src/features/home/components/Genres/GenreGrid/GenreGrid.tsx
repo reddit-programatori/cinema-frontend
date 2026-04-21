@@ -1,4 +1,3 @@
-import React from "react";
 import { GenreCard } from "../GenreCard/GenreCard";
 
 type Props = {

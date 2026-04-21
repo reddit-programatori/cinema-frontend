@@ -16,8 +16,6 @@ const genreListMock = [
   { id: "thriller", name: "Triler", movieCount: 6 },
 ];
 
-// TODO: getColors()
-
 export const Genres = () => {
   const sortedGenresByMovieCount = useMemo(
     () => genreListMock.toSorted((a, b) => b.movieCount - a.movieCount),
