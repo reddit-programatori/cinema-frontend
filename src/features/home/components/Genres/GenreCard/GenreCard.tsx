@@ -14,13 +14,14 @@ import IconThriller from "../icons/tabler_search-filled.svg";
 import { ReactNode } from "react";
 import Link from "next/link";
 
-type TMPProps = {
+type Props = {
   className?: string;
   genreName: string;
   movieCount: number;
   id: string;
 };
-export const GenreCard = ({ className, genreName, movieCount, id }: TMPProps) => {
+
+export const GenreCard = ({ className, genreName, movieCount, id }: Props) => {
   const { color, icon } = genreConfigMap[id] ?? { color: "#333333", icon: null };
 
   return (
