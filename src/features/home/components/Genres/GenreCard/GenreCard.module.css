@@ -1,0 +1,24 @@
+.card {
+  background-color: red;
+  padding: 1rem;
+}
+
+.linkArrow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+}
+
+.genreName {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.movieCount {
+  font-size: 1rem;
+  color: var(--text);
+}
