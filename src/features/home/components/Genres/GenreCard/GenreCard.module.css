@@ -11,6 +11,16 @@
     transform: translateY(-0.25rem);
     box-shadow: 0 0 1rem var(--genre-color);
   }
+
+  &:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+
+  &:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
 }
 
 .linkArrow {

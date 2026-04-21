@@ -1,5 +1,12 @@
 export const pluralizeMovies = (count: number): string => {
-  if (count === 1) return "1 film";
-  if (count >= 2 && count <= 4) return `${count} filma`;
+  const lastDigit = count % 10;
+  const lastTwoDigits = count % 100;
+
+  if (lastDigit === 1 && lastTwoDigits !== 11) {
+    return `${count} film`;
+  }
+  if (lastDigit >= 2 && lastDigit <= 4 && (lastTwoDigits < 12 || lastTwoDigits > 14)) {
+    return `${count} filma`;
+  }
   return `${count} filmova`;
 };
