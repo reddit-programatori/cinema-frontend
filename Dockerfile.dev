@@ -1,0 +1,29 @@
+# Set minimal node version
+ARG NODE_VERSION=lts-alpine3.22
+
+# Define the baseimage
+FROM node:${NODE_VERSION} as dev
+
+# Set workdir
+WORKDIR /src/app
+
+# Copy package.json files
+COPY package*.json ./
+
+# install deps
+RUN npm install
+
+# Copy everything from local machine to container after deps are installed
+COPY . .
+
+# Set user/grop insied of the container to be node:node
+RUN chown -R node:node /src/app
+
+# Select user
+USER node
+
+# Expose next.js port 3000
+EXPOSE 3000
+
+# Start the app
+CMD ["npm", "run", "dev"]
