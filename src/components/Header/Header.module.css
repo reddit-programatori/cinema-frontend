@@ -1,0 +1,15 @@
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desktopNav {
+  display: flex;
+}
+
+@media (max-width: 992px) {
+  .desktopNav {
+    display: none;
+  }
+}
