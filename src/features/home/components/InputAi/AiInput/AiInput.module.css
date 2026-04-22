@@ -1,0 +1,37 @@
+.main {
+  display: flex;
+  align-items: center;
+  border: 0.15rem solid var(--main);
+  border-radius: 0.6rem;
+  width: 100%;
+  max-width: 850px;
+  margin: 3rem auto;
+  box-shadow: 0 0 30px var(--main);
+  padding: 0.5rem;
+}
+
+.inputOne {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  padding: 1rem;
+  background: transparent;
+  color: var(--text);
+  min-width: 0;
+}
+
+.sendBtn {
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 0 0.5rem;
+  padding: 0.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  color: var(--main);
+  flex-shrink: 0;
+}
+
+.sendBtn:hover {
+  transform: scale(1.1);
+}
