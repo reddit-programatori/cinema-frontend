@@ -1,0 +1,61 @@
+.card {
+  background-color: var(--genre-color);
+  padding: 1rem;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  border: 1px solid #92929233;
+
+  &:nth-child(-n + 2) {
+    grid-column: span 2;
+  }
+
+  &:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0 1rem var(--genre-color);
+  }
+
+  &:focus-visible {
+    outline: 0.125rem solid white;
+    outline-offset: 0.125rem;
+  }
+
+  &:focus {
+    outline: 0.125rem solid white;
+    outline-offset: 0.125rem;
+  }
+}
+
+.linkArrow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+}
+
+.card:hover .icon {
+  transition: filter 0.3s ease-in-out;
+  filter: drop-shadow(0 0 0.5rem #fff);
+}
+
+.genreName {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.movieCount {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .card:nth-child(-n + 2) {
+    grid-column: auto;
+  }
+}
