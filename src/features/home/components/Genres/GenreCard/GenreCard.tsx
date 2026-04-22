@@ -44,12 +44,12 @@ export const GenreCard = ({ className, genreName, movieCount, id }: Props) => {
 };
 
 export const genreConfigMap: Record<string, { color: string; icon: ReactNode }> = {
-  action: { color: "#531616", icon: <IconAction /> },
-  "sci-fi": { color: "#073269", icon: <IconSciFi /> },
-  horror: { color: "#32235E", icon: <IconHorror /> },
-  thriller: { color: "#3A2400", icon: <IconThriller /> },
-  drama: { color: "#003D4D", icon: <IconDrama /> },
-  romance: { color: "#B13B3B", icon: <IconRomance /> },
-  animated: { color: "#2A004A", icon: <IconPainting /> },
-  comedy: { color: "#135513", icon: <IconComedy /> },
+  action: { color: "#53161640", icon: <IconAction /> },
+  "sci-fi": { color: "#07326940", icon: <IconSciFi /> },
+  horror: { color: "#32235E40", icon: <IconHorror /> },
+  thriller: { color: "#3A240040", icon: <IconThriller /> },
+  drama: { color: "#003D4D40", icon: <IconDrama /> },
+  romance: { color: "#B13B3B40", icon: <IconRomance /> },
+  animated: { color: "#2A004A40", icon: <IconPainting /> },
+  comedy: { color: "#13551340", icon: <IconComedy /> },
 };
