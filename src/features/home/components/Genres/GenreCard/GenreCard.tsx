@@ -15,18 +15,17 @@ import { ReactNode } from "react";
 import Link from "next/link";
 
 type Props = {
-  className?: string;
   genreName: string;
   movieCount: number;
   id: string;
 };
 
-export const GenreCard = ({ className, genreName, movieCount, id }: Props) => {
+export const GenreCard = ({ genreName, movieCount, id }: Props) => {
   const { color, icon } = genreConfigMap[id] ?? { color: "#333333", icon: null };
 
   return (
     <article
-      className={`${styles.card} ${className || ""}`}
+      className={styles.card}
       style={{ "--genre-color": color } as React.CSSProperties} //as React.CSSProperties is TypeScript hack. CSS custom properties are not part of standard CSS properties, pausing TypeScript from complaining about it.
     >
       <Link href={`/genres/${id}`} className={styles.linkOverlay}>

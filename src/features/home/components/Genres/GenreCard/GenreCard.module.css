@@ -9,6 +9,10 @@
 
   border: 1px solid #92929233;
 
+  &:nth-child(-n + 2) {
+    grid-column: span 2;
+  }
+
   &:hover {
     transform: translateY(-0.25rem);
     box-shadow: 0 0 1rem var(--genre-color);
@@ -48,4 +52,10 @@
 .movieCount {
   font-size: 1rem;
   color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .card:nth-child(-n + 2) {
+    grid-column: auto;
+  }
 }

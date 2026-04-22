@@ -7,17 +7,9 @@
   width: 100%;
 }
 
-.item:nth-child(-n + 2) {
-  grid-column: span 2;
-}
-
 @media (max-width: 768px) {
   .wrapper {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .item:nth-child(-n + 2) {
-    grid-column: auto;
   }
 }
 

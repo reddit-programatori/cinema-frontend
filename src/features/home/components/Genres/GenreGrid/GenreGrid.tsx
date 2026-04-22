@@ -16,7 +16,6 @@ export const GenreGrid = ({ genres }: { genres: Props[] }) => {
           genreName={genre.name}
           movieCount={genre.movieCount}
           id={genre.id}
-          className={styles.item}
         />
       ))}
     </div>
