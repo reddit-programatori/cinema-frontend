@@ -1,22 +1,21 @@
 import { GenreCard } from "../GenreCard/GenreCard";
 import styles from "./GenreGrid.module.css";
 
-type Props = {
+export type Genre = {
   id: string;
   name: string;
   movieCount: number;
 };
 
-export const GenreGrid = ({ genres }: { genres: Props[] }) => {
+type Props = {
+  genres: Genre[];
+};
+
+export const GenreGrid = ({ genres }: Props) => {
   return (
     <div className={styles.wrapper}>
       {genres.map((genre) => (
-        <GenreCard
-          key={genre.id}
-          genreName={genre.name}
-          movieCount={genre.movieCount}
-          id={genre.id}
-        />
+        <GenreCard key={genre.id} genre={genre} />
       ))}
     </div>
   );

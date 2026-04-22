@@ -13,14 +13,13 @@ import IconRomance from "../icons/mdi_heart.svg";
 import IconThriller from "../icons/tabler_search-filled.svg";
 import { ReactNode } from "react";
 import Link from "next/link";
+import { Genre } from "../GenreGrid/GenreGrid";
 
 type Props = {
-  genreName: string;
-  movieCount: number;
-  id: string;
+  genre: Genre;
 };
 
-export const GenreCard = ({ genreName, movieCount, id }: Props) => {
+export const GenreCard = ({ genre: { name, movieCount, id } }: Props) => {
   const { color, icon } = genreConfigMap[id] ?? { color: "#333333", icon: null };
 
   return (
@@ -34,7 +33,7 @@ export const GenreCard = ({ genreName, movieCount, id }: Props) => {
         </div>
         <div className={styles.icon}>{icon}</div>
         <div className="footer">
-          <h3 className={styles.genreName}>{genreName}</h3>
+          <h3 className={styles.genreName}>{name}</h3>
           <div className={styles.movieCount}>{pluralizeMovies(movieCount)} u bioskopu</div>
         </div>
       </Link>
