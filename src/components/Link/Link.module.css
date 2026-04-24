@@ -85,3 +85,34 @@
   padding: 0.75rem 1.75rem;
   font-size: 1.125rem;
 }
+
+/* Regardless of screen size because of mobile responsiveness all sizes are adjusted to the same value */
+@media (max-width: 480px) {
+  .sm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  .md {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  .lg {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 392px) {
+  .sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  .md {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  .lg {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+}
