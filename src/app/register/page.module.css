@@ -12,6 +12,7 @@
   max-width: 1300px;
   display: grid;
   grid-template-columns: 1.3fr 1fr;
+  margin-top: 7rem;
 }
 
 .leftPanel {

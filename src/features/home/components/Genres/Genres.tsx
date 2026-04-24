@@ -1,6 +1,6 @@
 "use client";
 import { GenreGrid } from "./GenreGrid/GenreGrid";
-import { GenreHeader } from "./GenreHeader/GenreHeader";
+import { TextHeader } from "./TextHeader/TextHeader";
 
 import { useMemo } from "react";
 
@@ -24,7 +24,12 @@ export const Genres = () => {
 
   return (
     <section>
-      <GenreHeader />
+      <TextHeader
+        eyebrow="Pregled po žanru"
+        title="Koji žanr večeras?"
+        subtitle="Izaberi atmosferu koja ti odgovara."
+        align="center"
+      />
       <GenreGrid genres={sortedGenresByMovieCount} />
     </section>
   );
