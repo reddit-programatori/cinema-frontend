@@ -9,7 +9,7 @@ type TextHeaderProps = {
 
 export const TextHeader = ({ eyebrow, title, subtitle, align = "center" }: TextHeaderProps) => {
   return (
-    <div className={styles.header + " " + styles[align]}>
+    <div className={`${styles.header} ${styles[align]}`}>
       {eyebrow && <span className={styles.eyebrow}>{eyebrow}</span>}
       <h2 className={styles.title}>{title}</h2>
       {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
