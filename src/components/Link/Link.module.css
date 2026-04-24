@@ -38,8 +38,8 @@
 
 /* Variants */
 .primary {
-  background-color: var(--main);
-  color: var(--main);
+  border: 2px solid var(--main);
+  background-color: var(--mainDark);
 }
 .primary:hover {
   background-color: var(--color-primary-hover);
@@ -78,7 +78,7 @@
   font-size: 0.875rem;
 }
 .md {
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
 }
 .lg {
