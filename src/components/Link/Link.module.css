@@ -38,8 +38,8 @@
 
 /* Variants */
 .primary {
-  background-color: var(--main);
-  color: var(--main);
+  border: 2px solid var(--main);
+  background-color: var(--mainDark);
 }
 .primary:hover {
   background-color: var(--color-primary-hover);
@@ -78,10 +78,41 @@
   font-size: 0.875rem;
 }
 .md {
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
 }
 .lg {
   padding: 0.75rem 1.75rem;
   font-size: 1.125rem;
+}
+
+/* Regardless of screen size because of mobile responsiveness all sizes are adjusted to the same value */
+@media (max-width: 480px) {
+  .sm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  .md {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  .lg {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 392px) {
+  .sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  .md {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  .lg {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
 }

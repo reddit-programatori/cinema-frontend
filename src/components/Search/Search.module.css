@@ -1,0 +1,45 @@
+.searchBox {
+  display: flex;
+  max-width: 198px;
+  align-items: center;
+  border: 2px solid var(--main);
+  border-radius: 0.25rem;
+  padding: 0 0.5rem 0 1rem;
+  gap: 0.25rem;
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.5rem;
+  background: transparent;
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .searchBox {
+    max-width: 150px;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .input {
+    padding: 0.25rem 0;
+  }
+
+  .searchBox {
+    max-width: 120px;
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}

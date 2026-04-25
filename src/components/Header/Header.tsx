@@ -12,8 +12,8 @@ import { HamburgerProvider } from "@/providers/HamburgerProvider";
 export const Header = () => {
   return (
     <HamburgerProvider>
-      <header className="top-0 z-50 fixed bg-black px-4 py-2.5 w-full">
-        <div className="flex justify-between items-center">
+      <header className={styles.header}>
+        <div className={styles.headerMain}>
           <Link href="/">
             <Image src="/logo.svg" alt="Company Name logo" width={96} height={96} loading="eager" />
           </Link>

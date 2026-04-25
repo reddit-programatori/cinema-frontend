@@ -1,23 +1,16 @@
-import Link from "next/link";
-
 import styles from "./Header.module.css";
 
-import IconSearch from "@/components/ui/icons/search.svg";
 import IconArrow from "@/components/ui/icons/arrow-up-right.svg";
+import { Link } from "../Link/Link";
+import { Search } from "../Search/Search";
 
 export const HeaderActions = () => {
   return (
     <div className={styles.actions}>
-      <div className={styles.searchBox}>
-        <input type="text" placeholder="Pretraga" className={styles.input} />
+      <Search placeholder="Naziv filma..." />
 
-        <button className={styles.iconBtn}>
-          <IconSearch />
-        </button>
-      </div>
-
-      <Link className={styles.linkStyle} href="/login">
-        Prijavi se <IconArrow />
+      <Link variant="primary" href="/login">
+        Prijava <IconArrow />
       </Link>
     </div>
   );
