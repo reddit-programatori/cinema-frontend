@@ -1,7 +1,7 @@
-import { Hero } from "@/features/home/components/Hero/Hero";
+import { Hero } from "@/features/hero/components/Hero/Hero";
 import styles from "./home.module.css";
-import { Genres } from "@/features/home/components/Genres/Genres";
-import AiAssistantBox from "@/features/home/components/InputAi/AiAssistantBox";
+import { Genres } from "@/features/genres/components/Genres";
+import AiAssistantBox from "@/features/input-ai/components/AiAssistantBox";
 
 export default function Home() {
   return (

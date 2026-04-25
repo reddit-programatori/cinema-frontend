@@ -1,6 +1,6 @@
 "use client";
 import { GenreGrid } from "./GenreGrid/GenreGrid";
-import { TextHeader } from "./TextHeader/TextHeader";
+import { TextHeader } from "@/components/TextHeader/TextHeader";
 
 import { useMemo } from "react";
 
