@@ -1,4 +1,4 @@
-import { TextHeader } from "@/features/home/components/Genres/TextHeader/TextHeader";
+import { TextHeader } from "@/components/TextHeader/TextHeader";
 import styles from "./AiAssistantBox.module.css";
 import AiQuestions from "./AiQuestionList/AiQuestions";
 import AiInput from "./AiInput/AiInput";
