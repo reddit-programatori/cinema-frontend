@@ -15,3 +15,15 @@ npm install
 # 4. Start the development server
 npm run dev
 ```
+
+How to Run the Build Version
+
+```bash
+
+# 1. Build the project
+npm run build
+
+# 2. Start the build locally
+npm run preview
+
+```

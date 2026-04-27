@@ -72,6 +72,11 @@
   background-color: var(--main);
 }
 
+.arrow {
+  background-color: transparent;
+  border: 1px solid var(--main);
+}
+
 /* Sizes */
 .sm {
   padding: 0.25rem 0.75rem;

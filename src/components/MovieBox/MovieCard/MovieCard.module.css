@@ -1,0 +1,52 @@
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.imgDiv {
+    position: relative;
+}
+
+.image {
+    margin-top: 2rem;
+    box-shadow: 0 10px 50px var(--mainDark);
+}
+
+.movieTitle {
+    font-size: 1.25rem;
+    margin: 1.5rem 0 0.5rem 0rem;
+}
+
+.cinemaText {
+    color: var(--text);
+}
+
+.ganreText {
+    position: absolute;
+    margin-top: 2rem;
+    left: 1rem;
+    top: 1rem;
+    background-color: var(--main);
+    padding: 0.4rem;
+    border-radius: 8px;
+}
+
+.ratingText {
+    color: var(--yellow);
+
+    margin: 0.5rem 0;
+
+    span:first-of-type {
+        color: black;
+        padding: 0.3rem 0.8rem;
+        margin-right: 1rem;
+        background-color:var(--yellow);
+        border-radius: 8px;
+    }
+
+    span:nth-of-type(2) {
+        margin-left: 1rem;
+    }
+
+}

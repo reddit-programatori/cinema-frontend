@@ -1,0 +1,15 @@
+
+.main {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #0A0A0A, #73B0FF, #0A0A0A);
+    border-radius: 2px;
+}
+
+.mt {
+  margin-top: 4rem;
+}
+
+.mb {
+  margin-bottom: 4rem;
+}
