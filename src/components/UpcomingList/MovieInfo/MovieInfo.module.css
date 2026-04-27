@@ -1,0 +1,54 @@
+
+.mainDiv {
+    border: solid 1px var(--text);
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.img {
+    padding: 1rem;
+}
+
+.infoDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.ganreText {
+    color: var(--main);
+}
+
+
+.text {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.duration {
+    color: var(--text);
+}
+
+.cinema {
+    color: var(--text);
+    border: solid 2px var(--text);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.button {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 2rem;
+    border: solid 2px var(--main);
+    padding: 0.5rem;
+    border-radius: 8px;
+}
