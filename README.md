@@ -16,8 +16,6 @@ npm install
 npm run dev
 ```
 
-##
-
 How to Run the Build Version
 
 ```bash

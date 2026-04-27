@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import styles from "./Link.module.css";
 
-type Variant = "primary" | "secondary" | "ghost" | "outline";
+type Variant = "primary" | "secondary" | "ghost" | "outline" | "arrow";
 type ButtonSize = "sm" | "md" | "lg";
 // ! When the need arises to create our button component this prop will be reusable.
 type BaseProps = {
@@ -17,6 +17,7 @@ const variantStyles: Record<Variant, string> = {
   secondary: styles.secondary,
   ghost: styles.ghost,
   outline: styles.outline,
+  arrow: styles.arrow,
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

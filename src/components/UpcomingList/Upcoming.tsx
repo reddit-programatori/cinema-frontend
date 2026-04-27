@@ -1,13 +1,13 @@
-import ButtonMain from "../buttonMain/ButtonMain";
+import { Link } from "../Link/Link";
 import { MovieItem } from "../MovieBox/MovieBox";
 import { TextHeader } from "../TextHeader/TextHeader";
 import DateLine from "./DateLine/DateLine";
 import MovieInfo from "./MovieInfo/MovieInfo";
+import IconArrow from "@/components/ui/icons/arrow-up-right.svg";
+import styles from "./Upcoming.module.css";
 
 import img1 from "./picture/movie1.jpg";
 import img2 from "./picture/movie2.jpg";
-
-import IconArrow from "@/components/ui/icons/arrow-up-right.svg";
 
 type UpcomingMovieList = {
   date: string;
@@ -78,7 +78,9 @@ export default function UpcomingList() {
           </div>
         );
       })}
-      <ButtonMain url={"/"} pos={true} text={"Vidi vise"} />
+      <Link size="lg" href={"/"} variant="arrow" className={styles.button}>
+        Vidi vise <IconArrow />
+      </Link>
     </div>
   );
 }

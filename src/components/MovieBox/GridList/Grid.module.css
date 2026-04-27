@@ -4,3 +4,9 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   margin-top: 6rem;
 }
+
+.button {
+  display: flex;
+  width: fit-content;
+  margin: 2rem auto;
+}

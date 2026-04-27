@@ -1,4 +1,4 @@
-import ButtonMain from "@/components/buttonMain/ButtonMain";
+import { Link } from "@/components/Link/Link";
 import { MovieDisplayConfig, MovieItem } from "../MovieBox";
 import MovieCard from "../MovieCard/MovieCard";
 import styles from "./Grid.module.css";
@@ -19,7 +19,11 @@ export default function MovieGrid({ movies, displayOptions }: SwiperListProps) {
           <MovieCard key={index} movie={movieOne} displayOptions={displayOptions} />
         ))}
       </div>
-      {movies.length > 4 && <ButtonMain url={"/"} text={"Vidi vise"} pos={true} />}
+      {movies.length > 4 && (
+        <Link size="lg" href={"/"} variant="arrow" className={styles.button}>
+          Vidi vise <IconArrow />
+        </Link>
+      )}
     </>
   );
 }

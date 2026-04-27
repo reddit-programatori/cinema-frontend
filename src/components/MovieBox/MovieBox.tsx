@@ -6,12 +6,22 @@ import SwiperList from "./SwiperList/SwiperList";
 import MovieGrid from "./GridList/Grid";
 
 /* needs to be extracted to global */
+export type Genre = {
+  id: string;
+  name: string;
+};
+
+export type Cinema = {
+  id: string;
+  name: string;
+};
+
 export type MovieItem = {
-  Picture: StaticImageData;
-  Title: string;
-  Genres: string[];
-  Duration: string;
-  CinemaList: string[];
+  picture: StaticImageData;
+  title: string;
+  genres: Genre[];
+  duration: number; // in minutes
+  cinemaList: Cinema[];
   rating: number;
 };
 
