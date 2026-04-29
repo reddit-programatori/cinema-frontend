@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepare": "husky"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.34.0",
@@ -29,8 +30,16 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "prettier": "3.8.1",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,css}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }
