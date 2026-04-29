@@ -2,6 +2,7 @@ import { Link } from "@/components/Link/Link";
 import styles from "./Hero.module.css";
 import { ParticlesBackground } from "../ParticlesBackground/ParticlesBackground";
 import IconArrowUpRight from "@/components/ui/icons/arrow-up-right.svg";
+import Line from "@/components/Line/Line";
 
 export const Hero = () => {
   return (
@@ -15,6 +16,7 @@ export const Hero = () => {
           <IconArrowUpRight aria-hidden="true" />
         </Link>
       </div>
+      <Line />
     </section>
   );
 };
