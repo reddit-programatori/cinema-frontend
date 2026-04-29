@@ -20,7 +20,7 @@ export default function MovieCard({ movie, displayOptions }: MovieCardProps) {
       </div>
       <p className={styles.movieTitle}>{movie.Title}</p>
       <div className={styles.cinemaText}>{movie.CinemaList[0]}</div>
-      {displayOptions.showRating && (
+      {displayOptions.showRating /* sepereate comp */ && (
         <div className={styles.rating}>
           <p className={styles.ratingText}>
             <span>IMDb</span>

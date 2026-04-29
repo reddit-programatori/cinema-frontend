@@ -5,7 +5,6 @@ import AiAssistantBox from "@/features/input-ai/components/AiAssistantBox";
 import MovieBox from "@/components/MovieBox/MovieBox";
 import Line from "@/components/Line/Line";
 import UpcomingList from "@/components/UpcomingList/Upcoming";
-import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -31,7 +30,6 @@ export default function Home() {
         />
         <UpcomingList />
       </div>
-      <Footer />
     </div>
   );
 }
