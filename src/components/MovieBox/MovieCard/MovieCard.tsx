@@ -13,25 +13,32 @@ export default function MovieCard({ movie, displayOptions }: MovieCardProps) {
       <div className={styles.imgDiv}>
         {displayOptions.showGenreTag && (
           <div className={styles.cinemaText}>
-            <p className={styles.ganreText}>{movie.Genres[0]}</p>
+            <p className={styles.ganreText}>{movie.genres[0]?.name}</p>
           </div>
         )}
-        <Image width={250} height={200} src={movie.Picture} alt="movie" className={styles.image} />
+
+        <Image
+          width={250}
+          height={200}
+          src={movie.picture}
+          alt={movie.title}
+          className={styles.image}
+        />
       </div>
-      <p className={styles.movieTitle}>{movie.Title}</p>
-      <div className={styles.cinemaText}>{movie.CinemaList[0]}</div>
-      {displayOptions.showRating /* sepereate comp */ && (
+
+      <p className={styles.movieTitle}>{movie.title}</p>
+
+      <div className={styles.cinemaText}>{movie.cinemaList[0]?.name}</div>
+
+      {displayOptions.showRating && (
         <div className={styles.rating}>
           <p className={styles.ratingText}>
             <span>IMDb</span>
             {movie.rating}
             <span>⭐⭐⭐⭐</span>
-            {/* static emoji for now */}
           </p>
         </div>
       )}
-      {/* missing - for cinemas to be listed option */}
-      {/* - */}
     </div>
   );
 }
