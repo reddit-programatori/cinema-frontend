@@ -13,17 +13,17 @@ export default function MovieInfo({ data }: MovieInfoProp) {
         width={150}
         height={150}
         className={styles.img}
-        src={data.Picture}
+        src={data.picture}
         alt="movie picture"
       />
       <div className={styles.infoDiv}>
-        <p className={styles.ganreText}>{data.Genres.join(" | ")}</p>
-        <p className={styles.title}>{data.Title}</p>
-        <p className={styles.duration}>{data.Duration}</p>
+        <p className={styles.ganreText}>{data.genres.join(" | ")}</p>
+        <p className={styles.title}>{data.title}</p>
+        <p className={styles.duration}>{data.duration}</p>
         <p className={styles.text}>
-          {data.CinemaList.map((cinema, i) => (
+          {data.cinemaList.map((cinema, i) => (
             <span key={i} className={styles.cinema}>
-              {cinema}
+              {cinema.name}
             </span>
           ))}
         </p>

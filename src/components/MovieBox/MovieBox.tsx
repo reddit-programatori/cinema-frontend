@@ -20,7 +20,7 @@ export type MovieItem = {
   picture: StaticImageData;
   title: string;
   genres: Genre[];
-  duration: number; // in minutes
+  duration: string;
   cinemaList: Cinema[];
   rating: number;
 };
@@ -40,7 +40,7 @@ const movies: MovieItem[] = [
       { id: "1", name: "Action" },
       { id: "2", name: "Adventure" },
     ],
-    duration: 130,
+    duration: "2hr 20m",
     cinemaList: [
       { id: "1", name: "Cineplexx" },
       { id: "2", name: "Arena" },
@@ -54,7 +54,7 @@ const movies: MovieItem[] = [
       { id: "3", name: "Drama" },
       { id: "4", name: "Romance" },
     ],
-    duration: 105,
+    duration: "2hr 20m",
     cinemaList: [{ id: "3", name: "CineStar" }],
     rating: 7.5,
   },
@@ -65,7 +65,7 @@ const movies: MovieItem[] = [
       { id: "5", name: "Horror" },
       { id: "6", name: "Thriller" },
     ],
-    duration: 115,
+    duration: "2hr 20m",
     cinemaList: [{ id: "2", name: "Arena" }],
     rating: 6.9,
   },
@@ -73,7 +73,7 @@ const movies: MovieItem[] = [
     picture: movieTwo,
     title: "Avatar 1",
     genres: [{ id: "7", name: "Comedy" }],
-    duration: 90,
+    duration: "2hr 20m",
     cinemaList: [
       { id: "1", name: "Cineplexx" },
       { id: "3", name: "CineStar" },
@@ -87,7 +87,7 @@ const movies: MovieItem[] = [
       { id: "8", name: "Sci-Fi" },
       { id: "1", name: "Action" },
     ],
-    duration: 140,
+    duration: "2hr 20m",
     cinemaList: [{ id: "4", name: "IMAX" }],
     rating: 8.7,
   },
@@ -98,7 +98,7 @@ const movies: MovieItem[] = [
       { id: "9", name: "Animation" },
       { id: "10", name: "Family" },
     ],
-    duration: 85,
+    duration: "2hr 20m",
     cinemaList: [{ id: "5", name: "Kids Cinema" }],
     rating: 8.0,
   },
