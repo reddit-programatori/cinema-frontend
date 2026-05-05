@@ -3,9 +3,10 @@ import { GenreGrid } from "./GenreGrid/GenreGrid";
 import { TextHeader } from "@/components/TextHeader/TextHeader";
 
 import { useMemo } from "react";
+import { Genre } from "../types";
 
 // Simulacija dohvata žanrova, kasnije će se zamijeniti stvarnim API pozivom
-const genreListMock = [
+export const genreListMock: Genre[] = [
   { id: "action", name: "Akcija", movieCount: 250 },
   { id: "comedy", name: "Komedija", movieCount: 21 },
   { id: "drama", name: "Drama", movieCount: 102 },

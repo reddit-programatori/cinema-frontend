@@ -11,9 +11,9 @@ export type SwiperListProps = {
 };
 
 export default function MovieGrid({ movies, displayOptions }: SwiperListProps) {
-  const visibleMovies = movies.slice(0, 4);
+  const visibleMovies = movies;
   return (
-    <>
+    <div className={styles.gridContainer}>
       <div className={styles.grid}>
         {visibleMovies.map((movieOne, index) => (
           <MovieCard key={index} movie={movieOne} displayOptions={displayOptions} />
@@ -24,6 +24,6 @@ export default function MovieGrid({ movies, displayOptions }: SwiperListProps) {
           Vidi vise <IconArrow />
         </Link>
       )}
-    </>
+    </div>
   );
 }
