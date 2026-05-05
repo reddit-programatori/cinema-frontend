@@ -2,7 +2,7 @@
 
 import { MOVIE_GENRES } from "@/features/genres/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { createContext, useContext, useOptimistic, useTransition } from "react";
+import { createContext, Suspense, useContext, useOptimistic, useTransition } from "react";
 import z from "zod";
 
 const filterSchema = z.object({
@@ -18,7 +18,7 @@ type FilterContextType = {
 
 export const FilterContext = createContext<FilterContextType | undefined>(undefined);
 
-export default function FilterProvider({ children }: { children: React.ReactNode }) {
+function FilterProviderInner({ children }: { children: React.ReactNode }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -64,6 +64,15 @@ export default function FilterProvider({ children }: { children: React.ReactNode
     <FilterContext.Provider value={{ filters: optimisticFilters || {}, isPending, updateFilters }}>
       {children}
     </FilterContext.Provider>
+  );
+}
+
+export default function FilterProvider({ children }: { children: React.ReactNode }) {
+  return (
+    // TODO: Update fallback
+    <Suspense fallback={null}>
+      <FilterProviderInner>{children}</FilterProviderInner>
+    </Suspense>
   );
 }
 
