@@ -1,7 +1,6 @@
 .header {
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
   margin-bottom: 4rem;
 
@@ -21,4 +20,14 @@
 
 .subtitle {
   font-size: 1.25rem;
+}
+
+.left {
+  align-items: flex-start;
+}
+.center {
+  align-items: center;
+}
+.right {
+  align-items: flex-end;
 }
