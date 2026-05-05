@@ -55,7 +55,7 @@ function FilterProviderInner({ children }: { children: React.ReactNode }) {
     });
 
     startTransition(() => {
-      setOptimisticFilters(updates || {});
+      setOptimisticFilters(newState);
       router.push(`${pathname}?${newSearchParams}`);
     });
   }
