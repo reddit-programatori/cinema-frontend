@@ -17,8 +17,6 @@ export const genreListMock: Genre[] = [
   { id: "thriller", name: "Triler", movieCount: 6 },
 ];
 
-// TODO - Promeni da se zove GenreSection
-// TODO - A na url-u `/genres/` -> da se zove GenresBrowse(r)??
 export const Genres = () => {
   const sortedGenresByMovieCount = useMemo(
     () => genreListMock.toSorted((a, b) => b.movieCount - a.movieCount),

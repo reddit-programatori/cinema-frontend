@@ -11,7 +11,7 @@ export type SwiperListProps = {
 };
 
 export default function MovieGrid({ movies, displayOptions }: SwiperListProps) {
-  const visibleMovies = movies.slice(0, 4);
+  const visibleMovies = movies;
   return (
     <>
       <div className={styles.grid}>
