@@ -24,14 +24,6 @@
   }
 }
 
-@media (max-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding: 0 4rem;
-  }
-}
-
 @media (max-width: 768px) {
   .grid {
     padding: 0 2rem;
