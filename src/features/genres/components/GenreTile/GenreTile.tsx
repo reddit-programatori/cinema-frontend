@@ -4,8 +4,8 @@ import styles from "./GenreTile.module.css";
 
 type Props = {
   genre: Genre;
-  onClick: (genreId: Lowercase<MovieGenre>) => void;
-  activeGenre: Lowercase<MovieGenre> | null;
+  onClick: (genreId: MovieGenre) => void;
+  activeGenre: MovieGenre | undefined;
 };
 
 export const GenreTile = ({ genre, activeGenre, onClick }: Props) => {

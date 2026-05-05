@@ -1,30 +1,33 @@
-export type MovieGenre =
-  | "Action"
-  | "Adventure"
-  | "Animation"
-  | "Biography"
-  | "Comedy"
-  | "Crime"
-  | "Documentary"
-  | "Drama"
-  | "Family"
-  | "Fantasy"
-  | "Film-Noir"
-  | "History"
-  | "Horror"
-  | "Music"
-  | "Musical"
-  | "Mystery"
-  | "Romance"
-  | "Sci-Fi"
-  | "Sport"
-  | "Thriller"
-  | "War"
-  | "Western"
-  | "Animated";
+export const MOVIE_GENRES = [
+  "action",
+  "adventure",
+  "animation",
+  "biography",
+  "comedy",
+  "crime",
+  "documentary",
+  "drama",
+  "family",
+  "fantasy",
+  "film-noir",
+  "history",
+  "horror",
+  "music",
+  "musical",
+  "mystery",
+  "romance",
+  "sci-fi",
+  "sport",
+  "thriller",
+  "war",
+  "western",
+  "animated",
+] as const;
+
+export type MovieGenre = (typeof MOVIE_GENRES)[number];
 
 export type Genre = {
-  id: Lowercase<MovieGenre>;
+  id: MovieGenre;
   name: string;
   movieCount: number;
 };

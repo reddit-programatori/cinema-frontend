@@ -8,8 +8,8 @@ import { Pagination } from "swiper/modules";
 import styles from "./GenreSwiperList.module.css";
 import "swiper/css";
 import "swiper/css/pagination";
-import { useState } from "react";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+
+import { useFilters } from "@/providers/FilterProvider";
 
 type Props = {
   genres: Genre[];
@@ -32,34 +32,13 @@ const breakpoints = {
     slidesPerView: 8,
   },
 };
+
 export const GenreSwiperList = ({ genres }: Props) => {
-  const [activeGenre, setActiveGenre] = useState<null | Lowercase<MovieGenre>>(null);
+  const { filters, updateFilters } = useFilters();
 
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
-
-  const handleChangeGenre = (genreId: Lowercase<MovieGenre>) => {
-    //===1
-    if (genreId === activeGenre) {
-      setActiveGenre(null);
-    } else {
-      setActiveGenre(genreId);
-    }
-
-    //===2
-    console.log({ searchParams });
-    const params = new URLSearchParams(searchParams);
-
-    if (genreId && genreId !== activeGenre) {
-      params.set("genre", genreId);
-    } else {
-      params.delete("genre");
-    }
-    //===2
-
-    //===3
-    replace(`${pathname}?${params.toString()}`);
+  const handleChangeGenre = (genreId: MovieGenre) => {
+    const isActive = filters.genre === genreId;
+    updateFilters({ genre: isActive ? undefined : genreId });
   };
 
   return (
@@ -75,7 +54,7 @@ export const GenreSwiperList = ({ genres }: Props) => {
       >
         {genres.map((genre) => (
           <SwiperSlide key={genre.id}>
-            <GenreTile activeGenre={activeGenre} onClick={handleChangeGenre} genre={genre} />
+            <GenreTile activeGenre={filters.genre} onClick={handleChangeGenre} genre={genre} />
           </SwiperSlide>
         ))}
       </Swiper>
