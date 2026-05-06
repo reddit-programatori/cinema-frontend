@@ -15,6 +15,7 @@ export const GenreTile = ({ genre, activeGenre, onClick }: Props) => {
     <button
       className={`${styles.tile}${activeGenre === genre.id ? ` ${styles.active}` : ""}`}
       onClick={() => onClick(genre.id)}
+      type="button"
     >
       <div className={styles.icon}>{icon}</div>
       <span>{genre.name}</span>
