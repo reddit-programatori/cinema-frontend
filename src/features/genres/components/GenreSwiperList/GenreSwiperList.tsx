@@ -17,22 +17,21 @@ type Props = {
 
 const breakpoints = {
   0: {
-    slidesPerView: 2,
+    slidesPerView: 3.5,
   },
   385: {
-    slidesPerView: 3,
+    slidesPerView: 5,
   },
   576: {
-    slidesPerView: 4,
+    slidesPerView: 5.5,
   },
   768: {
-    slidesPerView: 5,
+    slidesPerView: 4.5,
   },
   1100: {
     slidesPerView: 8,
   },
 };
-
 export const GenreSwiperList = ({ genres }: Props) => {
   const { filters, updateFilters } = useFilters();
 
@@ -45,17 +44,14 @@ export const GenreSwiperList = ({ genres }: Props) => {
   return (
     <div className={styles.list}>
       <Swiper
-        spaceBetween={0}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
         breakpoints={breakpoints}
+        pagination={{ clickable: true, dynamicBullets: true }}
+        modules={[Pagination]}
         className={styles.swiper}
       >
         {genres.map((genre) => (
           <SwiperSlide key={genre.id}>
-            <GenreTile activeGenre={filters.genre} onClick={handleChangeGenre} genre={genre} />
+            <GenreTile genre={genre} activeGenre={filters.genre} onClick={handleChangeGenre} />
           </SwiperSlide>
         ))}
       </Swiper>
