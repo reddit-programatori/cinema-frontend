@@ -12,12 +12,12 @@ export const GenreTile = ({ genre, activeGenre, onClick }: Props) => {
   const { icon } = genreConfigMap[genre.id];
 
   return (
-    <article
+    <button
       className={`${styles.tile}${activeGenre === genre.id ? ` ${styles.active}` : ""}`}
       onClick={() => onClick(genre.id)}
     >
       <div className={styles.icon}>{icon}</div>
       <span>{genre.name}</span>
-    </article>
+    </button>
   );
 };

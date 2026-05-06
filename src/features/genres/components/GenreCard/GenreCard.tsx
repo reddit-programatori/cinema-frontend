@@ -27,7 +27,7 @@ export const GenreCard = ({ genre: { name, movieCount, id } }: Props) => {
       className={styles.card}
       style={{ "--genre-color": color } as React.CSSProperties} //as React.CSSProperties is TypeScript hack. CSS custom properties are not part of standard CSS properties, pausing TypeScript from complaining about it.
     >
-      <Link href={`/genres/${id}`} className={styles.linkOverlay}>
+      <Link href={`/genres?genre=${id}`} className={styles.linkOverlay}>
         <div className={styles.linkArrow}>
           <IconCircleArrow />
         </div>
