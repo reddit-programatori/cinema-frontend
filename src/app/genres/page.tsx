@@ -1,6 +1,6 @@
 import MovieBox from "@/components/MovieBox/MovieBox";
 import { BrowseGenresSection } from "@/features/genres/components/BrowseGenresSection/BrowseGenresSection";
-import { MovieCounter } from "@/features/genres/components/MovieCounter/MovieCounter";
+import { Divider } from "@/components/Divider/Divider";
 
 import style from "./genres.module.css";
 export default function Page() {
@@ -8,8 +8,8 @@ export default function Page() {
     <>
       <BrowseGenresSection />
 
-      <div className={style.wrapper}>
-        <MovieCounter label="6 filmova" />
+      <div className={style.dividerContainer}>
+        <Divider label="6 filmova" />
       </div>
       <MovieBox
         listType="grid"
