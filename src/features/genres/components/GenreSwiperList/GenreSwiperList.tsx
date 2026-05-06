@@ -36,7 +36,7 @@ export const GenreSwiperList = ({ genres }: Props) => {
   const { filters, updateFilters } = useFilters();
 
   const handleChangeGenre = (genreId: MovieGenre) => {
-    // Remvoing genre query param if filters.genre matched with clicked genreId
+    // Removing genre query param if filters.genre matched with clicked genreId
     const isActive = filters.genre === genreId;
     updateFilters({ genre: isActive ? undefined : genreId });
   };
