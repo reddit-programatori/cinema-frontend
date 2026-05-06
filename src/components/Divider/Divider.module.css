@@ -1,0 +1,14 @@
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  opacity: 0.5;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-white);
+}

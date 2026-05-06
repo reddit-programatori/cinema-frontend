@@ -1,0 +1,7 @@
+.list {
+  max-width: 1100px;
+}
+
+.swiper {
+  padding-bottom: 3rem !important; /* ! Without !important, the navigation would overlap with the items */
+}

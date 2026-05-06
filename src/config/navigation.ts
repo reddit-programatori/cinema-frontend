@@ -6,7 +6,7 @@ export type LinkProp = {
 export const NAV_LINKS: LinkProp[] = [
   {
     label: "Početna",
-    href: "#",
+    href: "/",
   },
   {
     label: "Uskoro",
@@ -18,6 +18,6 @@ export const NAV_LINKS: LinkProp[] = [
   },
   {
     label: "Žanrovi",
-    href: "#",
+    href: "/genres",
   },
 ];

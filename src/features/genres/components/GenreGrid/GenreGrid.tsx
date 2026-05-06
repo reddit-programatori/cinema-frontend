@@ -1,11 +1,6 @@
+import { Genre } from "../../types";
 import { GenreCard } from "../GenreCard/GenreCard";
 import styles from "./GenreGrid.module.css";
-
-export type Genre = {
-  id: string;
-  name: string;
-  movieCount: number;
-};
 
 type Props = {
   genres: Genre[];

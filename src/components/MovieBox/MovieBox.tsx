@@ -1,7 +1,7 @@
 import type { StaticImageData } from "next/image";
 
 import movieOne from "./picture/movie1.jpg";
-import movieTwo from "./picture/movie2.jpg";
+import movieTwo from "./picture/movie2_avatar.jpg";
 import SwiperList from "./SwiperList/SwiperList";
 import MovieGrid from "./GridList/Grid";
 
@@ -102,6 +102,28 @@ const movies: MovieItem[] = [
     cinemaList: [{ id: "5", name: "Kids Cinema" }],
     rating: 8.0,
   },
+  {
+    picture: movieOne,
+    title: "Avatar 1",
+    genres: [
+      { id: "8", name: "Sci-Fi" },
+      { id: "1", name: "Action" },
+    ],
+    duration: 140,
+    cinemaList: [{ id: "4", name: "IMAX" }],
+    rating: 8.7,
+  },
+  {
+    picture: movieTwo,
+    title: "Avatar 1",
+    genres: [
+      { id: "9", name: "Animation" },
+      { id: "10", name: "Family" },
+    ],
+    duration: 85,
+    cinemaList: [{ id: "5", name: "Kids Cinema" }],
+    rating: 8.0,
+  },
 ];
 
 type MovieBoxProp = {
@@ -109,12 +131,15 @@ type MovieBoxProp = {
   displayOptions: MovieDisplayConfig;
 };
 
-export default function MovieBox({ listType, displayOptions }: MovieBoxProp) {
-  if (listType === "slide") {
-    return <SwiperList movies={movies} displayOptions={displayOptions} />;
-  } else if (listType === "grid") {
-    return <MovieGrid movies={movies} displayOptions={displayOptions} />;
-  }
+const LIST_COMPONENTS = {
+  slide: SwiperList,
+  grid: MovieGrid,
+} as const;
 
-  return null;
+export default function MovieBox({ listType, displayOptions }: MovieBoxProp) {
+  const ListComponent = LIST_COMPONENTS[listType];
+
+  if (!ListComponent) return null;
+
+  return <ListComponent movies={movies} displayOptions={displayOptions} />;
 }

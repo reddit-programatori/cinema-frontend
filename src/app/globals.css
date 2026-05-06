@@ -3,20 +3,23 @@
 :root {
   --main: #6191d0c5;
   --mainDark: #6191d049;
-  
+
   --backgroundGray: #161616;
   --backGroundBlue: #001228;
   --text: #aeaeae;
   --darkText: #8a8a8a;
   --textLink: #dddddd;
 
-  --yellow: #DEB522;
+  --yellow: #deb522;
 
   /* old colors */
   --background: #ffffff;
   --foreground: #171717;
 
   interpolate-size: allow-keywords;
+
+  /* swiper override */
+  --swiper-pagination-bullet-inactive-color: #fff;
 }
 
 @theme inline {
@@ -37,6 +40,9 @@
     --darkText: #8a8a8a;
     --textLink: #dddddd;
     --foreground: #ededed;
+
+    /* swiper override */
+    --swiper-pagination-bullet-inactive-color: #fff;
   }
 }
 
