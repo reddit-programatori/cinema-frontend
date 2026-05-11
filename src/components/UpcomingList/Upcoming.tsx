@@ -83,7 +83,7 @@ export default function UpcomingList({ headerType }: UpcomingListProp) {
         <TextHeader
           eyebrow={"Uskoro u bioskopu"}
           title={"Šta stiže uskoro?"}
-          subtitle={"Nadolazeći filmovi u tvojom gradu. Budi prvi koji rezerviše."}
+          subtitle={"Nadolazeći filmovi u tvojo gradu. Budi prvi koji rezerviše."}
         />
       )}
       {/* search  in city component */}
