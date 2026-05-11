@@ -71,15 +71,22 @@ const upcoming: UpcomingMovieList[] = [
     ],
   },
 ];
+
+type UpcomingListProp = {
+  headerType: number;
+};
 /* better name for this component? */
-export default function UpcomingList() {
+export default function UpcomingList({ headerType }: UpcomingListProp) {
   return (
     <div>
-      <TextHeader
-        eyebrow={"Uskoro u bioskopu"}
-        title={"Šta stiže uskoro?"}
-        subtitle={"Nadolazeći filmovi u tvojom gradu. Budi prvi koji rezerviše."}
-      />
+      {headerType === 1 && (
+        <TextHeader
+          eyebrow={"Uskoro u bioskopu"}
+          title={"Šta stiže uskoro?"}
+          subtitle={"Nadolazeći filmovi u tvojom gradu. Budi prvi koji rezerviše."}
+        />
+      )}
+      {/* search  in city component */}
       {upcoming.map((movieData, index) => {
         return (
           <div key={index}>
