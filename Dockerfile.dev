@@ -1,29 +1,36 @@
-# Set minimal node version
+# ==========================================
+# STAGE 1: Local Development install
+# ==========================================
 ARG NODE_VERSION=lts-alpine3.22
 
 # Define the baseimage
-FROM node:${NODE_VERSION} as dev
+FROM node:${NODE_VERSION} AS installer
 
-# Set workdir
-WORKDIR /src/app
+WORKDIR /app
 
-# Copy package.json files
-COPY package*.json ./
+# Copy dependency definitions first
+COPY package.json package-lock.json ./
 
-# install deps
-RUN npm install
+# Calculate hash of the lockfile, compare with previous cache, install only if changed
+RUN --mount=type=cache,target=/root/.npm \
+    if [ -f /app/node_modules/.package-lock.hash ] && \
+       echo "$(sha256sum package-lock.json)" | cmp -s - /app/node_modules/.package-lock.hash; then \
+         echo "Dependencies unchanged. Skipping npm install."; \
+    else \
+         echo "Dependencies changed. Running npm install..."; \
+         npm ci && \
+         sha256sum package-lock.json > /app/node_modules/.package-lock.hash; \
+    fi
 
-# Copy everything from local machine to container after deps are installed
+# ==========================================
+# STAGE 2: Local Development Runner
+# ==========================================
+FROM  node:${NODE_VERSION} AS runner
+WORKDIR /app
+
+# Copy installed node_modules (including the hash file) from Stage 1
+COPY --from=installer /app/node_modules ./node_modules
 COPY . .
 
-# Set user/grop insied of the container to be node:node
-RUN chown -R node:node /src/app
-
-# Select user
-USER node
-
-# Expose next.js port 3000
 EXPOSE 3000
-
-# Start the app
 CMD ["npm", "run", "dev"]
