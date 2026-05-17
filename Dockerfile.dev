@@ -6,6 +6,7 @@ ARG NODE_VERSION=lts-alpine3.22
 # Define the baseimage
 FROM node:${NODE_VERSION} AS installer
 
+# Set workdir
 WORKDIR /app
 
 # Copy dependency definitions first
@@ -26,11 +27,18 @@ RUN --mount=type=cache,target=/root/.npm \
 # STAGE 2: Local Development Runner
 # ==========================================
 FROM  node:${NODE_VERSION} AS runner
+
+# Set workdir
 WORKDIR /app
 
 # Copy installed node_modules (including the hash file) from Stage 1
 COPY --from=installer /app/node_modules ./node_modules
+
+# Copy project into container
 COPY . .
 
+# Port mapping
 EXPOSE 3000
+
+# Run the app
 CMD ["npm", "run", "dev"]
