@@ -12,7 +12,7 @@ WORKDIR /app
 # Copy dependency definitions first
 COPY package.json package-lock.json ./
 
-# Calculate hash of the lockfile, compare with previous cache, install only if changed
+# Set cache location inside of a container for packer injection
 RUN --mount=type=cache,target=/root/.npm \
     npm ci
 
