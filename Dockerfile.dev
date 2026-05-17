@@ -1,29 +1,37 @@
-# Set minimal node version
+# ==========================================
+# STAGE 1: Local Development install
+# ==========================================
 ARG NODE_VERSION=lts-alpine3.22
 
 # Define the baseimage
-FROM node:${NODE_VERSION} as dev
+FROM node:${NODE_VERSION} AS installer
 
 # Set workdir
-WORKDIR /src/app
+WORKDIR /app
 
-# Copy package.json files
-COPY package*.json ./
+# Copy dependency definitions first
+COPY package.json package-lock.json ./
 
-# install deps
-RUN npm install
+# Set cache location inside of a container for packer injection
+RUN --mount=type=cache,target=/root/.npm \
+    npm ci
 
-# Copy everything from local machine to container after deps are installed
+# ==========================================
+# STAGE 2: Local Development Runner
+# ==========================================
+FROM  node:${NODE_VERSION} AS runner
+
+# Set workdir
+WORKDIR /app
+
+# Copy installed node_modules (including the hash file) from Stage 1
+COPY --from=installer /app/node_modules ./node_modules
+
+# Copy project into container
 COPY . .
 
-# Set user/grop insied of the container to be node:node
-RUN chown -R node:node /src/app
-
-# Select user
-USER node
-
-# Expose next.js port 3000
+# Port mapping
 EXPOSE 3000
 
-# Start the app
+# Run the app
 CMD ["npm", "run", "dev"]
