@@ -14,14 +14,7 @@ COPY package.json package-lock.json ./
 
 # Calculate hash of the lockfile, compare with previous cache, install only if changed
 RUN --mount=type=cache,target=/root/.npm \
-    if [ -f /app/node_modules/.package-lock.hash ] && \
-       echo "$(sha256sum package-lock.json)" | cmp -s - /app/node_modules/.package-lock.hash; then \
-         echo "Dependencies unchanged. Skipping npm install."; \
-    else \
-         echo "Dependencies changed. Running npm install..."; \
-         npm ci && \
-         sha256sum package-lock.json > /app/node_modules/.package-lock.hash; \
-    fi
+    npm ci
 
 # ==========================================
 # STAGE 2: Local Development Runner
