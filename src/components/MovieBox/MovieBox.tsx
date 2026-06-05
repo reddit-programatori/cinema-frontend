@@ -4,6 +4,7 @@ import movieOne from "./picture/movie1.jpg";
 import movieTwo from "./picture/movie2_avatar.jpg";
 import SwiperList from "./SwiperList/SwiperList";
 import MovieGrid from "./GridList/Grid";
+import { getMovies } from "@/app/api/apiTest";
 
 /* needs to be extracted to global */
 export type Genre = {
@@ -31,101 +32,6 @@ export type MovieDisplayConfig = {
   showCinemaList?: boolean;
 };
 
-/* static values */
-const movies: MovieItem[] = [
-  {
-    picture: movieOne,
-    title: "Avatar 1",
-    genres: [
-      { id: "1", name: "Action" },
-      { id: "2", name: "Adventure" },
-    ],
-    duration: "2hr 20m",
-    cinemaList: [
-      { id: "1", name: "Cineplexx" },
-      { id: "2", name: "Arena" },
-    ],
-    rating: 8.2,
-  },
-  {
-    picture: movieTwo,
-    title: "Avatar 1",
-    genres: [
-      { id: "3", name: "Drama" },
-      { id: "4", name: "Romance" },
-    ],
-    duration: "2hr 20m",
-    cinemaList: [{ id: "3", name: "CineStar" }],
-    rating: 7.5,
-  },
-  {
-    picture: movieOne,
-    title: "Avatar 1",
-    genres: [
-      { id: "5", name: "Horror" },
-      { id: "6", name: "Thriller" },
-    ],
-    duration: "2hr 20m",
-    cinemaList: [{ id: "2", name: "Arena" }],
-    rating: 6.9,
-  },
-  {
-    picture: movieTwo,
-    title: "Avatar 1",
-    genres: [{ id: "7", name: "Comedy" }],
-    duration: "2hr 20m",
-    cinemaList: [
-      { id: "1", name: "Cineplexx" },
-      { id: "3", name: "CineStar" },
-    ],
-    rating: 7.8,
-  },
-  {
-    picture: movieOne,
-    title: "Avatar 1",
-    genres: [
-      { id: "8", name: "Sci-Fi" },
-      { id: "1", name: "Action" },
-    ],
-    duration: "2hr 20m",
-    cinemaList: [{ id: "4", name: "IMAX" }],
-    rating: 8.7,
-  },
-  {
-    picture: movieTwo,
-    title: "Avatar 1",
-    genres: [
-      { id: "9", name: "Animation" },
-      { id: "10", name: "Family" },
-    ],
-    duration: "2hr 20m",
-    cinemaList: [{ id: "5", name: "Kids Cinema" }],
-    rating: 8.0,
-  },
-  {
-    picture: movieOne,
-    title: "Avatar 1",
-    genres: [
-      { id: "8", name: "Sci-Fi" },
-      { id: "1", name: "Action" },
-    ],
-    duration: 140,
-    cinemaList: [{ id: "4", name: "IMAX" }],
-    rating: 8.7,
-  },
-  {
-    picture: movieTwo,
-    title: "Avatar 1",
-    genres: [
-      { id: "9", name: "Animation" },
-      { id: "10", name: "Family" },
-    ],
-    duration: 85,
-    cinemaList: [{ id: "5", name: "Kids Cinema" }],
-    rating: 8.0,
-  },
-];
-
 type MovieBoxProp = {
   listType: "slide" | "grid";
   displayOptions: MovieDisplayConfig;
@@ -136,10 +42,28 @@ const LIST_COMPONENTS = {
   grid: MovieGrid,
 } as const;
 
-export default function MovieBox({ listType, displayOptions }: MovieBoxProp) {
+export default async function MovieBox({ listType, displayOptions }: MovieBoxProp) {
+  const movies = await getMovies();
+
+  /* temporary fix */
+  const moviesMapped: MovieItem[] = movies.map((movie) => ({
+    picture: movieOne, // also temporary
+    title: movie.name,
+    genres: movie.genres.map((genre) => ({
+      id: String(genre.id),
+      name: genre.name,
+    })),
+    duration: movie.duration,
+    cinemaList: movie.screening.map((screening) => ({
+      id: String(screening.id),
+      name: screening.cinema,
+    })),
+    rating: movie.rating,
+  }));
+
   const ListComponent = LIST_COMPONENTS[listType];
 
   if (!ListComponent) return null;
 
-  return <ListComponent movies={movies} displayOptions={displayOptions} />;
+  return <ListComponent movies={moviesMapped} displayOptions={displayOptions} />;
 }
