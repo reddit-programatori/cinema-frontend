@@ -21,7 +21,7 @@ export default function MovieCard({ movie, displayOptions }: MovieCardProps) {
           width={250}
           height={200}
           src={movie.picture}
-          alt={movie.title}
+          alt="movie image"
           className={styles.image}
         />
       </div>

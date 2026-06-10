@@ -10,7 +10,7 @@ export default function Soon() {
         <MovieFeatue />
       </GradientBackground>
       <div className={style.list}>
-        <UpcomingList headerType={1} />
+        <UpcomingList headerType={"main"} />
       </div>
     </div>
   );

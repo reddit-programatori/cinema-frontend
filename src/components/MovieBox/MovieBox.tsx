@@ -1,10 +1,9 @@
 import type { StaticImageData } from "next/image";
 
-import movieOne from "./picture/movie1.jpg";
-import movieTwo from "./picture/movie2_avatar.jpg";
+import movieOne from "./picture/movie1.jpg"; /*  */
 import SwiperList from "./SwiperList/SwiperList";
 import MovieGrid from "./GridList/Grid";
-import { getMovies } from "@/app/api/apiTest";
+import { api } from "@/app/api/apiClient";
 
 /* needs to be extracted to global */
 export type Genre = {
@@ -35,6 +34,7 @@ export type MovieDisplayConfig = {
 type MovieBoxProp = {
   listType: "slide" | "grid";
   displayOptions: MovieDisplayConfig;
+  type: string;
 };
 
 const LIST_COMPONENTS = {
@@ -42,21 +42,25 @@ const LIST_COMPONENTS = {
   grid: MovieGrid,
 } as const;
 
-export default async function MovieBox({ listType, displayOptions }: MovieBoxProp) {
+export default async function MovieBox({
+  listType,
+  displayOptions,
+  type = "/movies",
+}: MovieBoxProp) {
+  const getMovies = () => api.get<MovieItem[]>(type);
   const movies = await getMovies();
 
-  /* temporary fix */
   const moviesMapped: MovieItem[] = movies.map((movie) => ({
-    picture: movieOne, // also temporary
-    title: movie.name,
-    genres: movie.genres.map((genre) => ({
+    picture: movieOne,
+    title: movie.title,
+    genres: (movie.genres || []).map((genre) => ({
       id: String(genre.id),
       name: genre.name,
     })),
     duration: movie.duration,
-    cinemaList: movie.screening.map((screening) => ({
+    cinemaList: (movie.cinemaList || []).map((screening) => ({
       id: String(screening.id),
-      name: screening.cinema,
+      name: screening.name,
     })),
     rating: movie.rating,
   }));

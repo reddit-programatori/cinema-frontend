@@ -18,6 +18,7 @@ export default function Home() {
             showGenreTag: true,
             showRating: true,
           }}
+          type="/movies"
         />
         <Genres />
         <Line mt />
@@ -27,6 +28,7 @@ export default function Home() {
             showGenreTag: false,
             showRating: false,
           }}
+          type="/movies"
         />
         <UpcomingList />
       </div>

@@ -7,7 +7,6 @@ import IconArrow from "@/components/ui/icons/arrow-up-right.svg";
 import styles from "./Upcoming.module.css";
 
 import img1 from "./picture/movie1.jpg";
-import img2 from "./picture/movie2.jpg";
 
 type UpcomingMovieList = {
   date: string;
@@ -73,13 +72,13 @@ const upcoming: UpcomingMovieList[] = [
 ];
 
 type UpcomingListProp = {
-  headerType: number;
+  headerType: "main" | "second"; // better naming for later
 };
 /* better name for this component? */
 export default function UpcomingList({ headerType }: UpcomingListProp) {
   return (
     <div>
-      {headerType === 1 && (
+      {headerType === "main" && (
         <TextHeader
           eyebrow={"Uskoro u bioskopu"}
           title={"Šta stiže uskoro?"}

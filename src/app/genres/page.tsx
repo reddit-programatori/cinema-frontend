@@ -3,11 +3,16 @@ import { BrowseGenresSection } from "@/features/genres/components/BrowseGenresSe
 import { Divider } from "@/components/Divider/Divider";
 
 import style from "./genres.module.css";
-export default function Page() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{ genre?: string }>;
+}) {
+  const { genre } = await searchParams;
+
   return (
     <>
       <BrowseGenresSection />
-
       <div className={style.dividerContainer}>
         <Divider label="6 filmova" />
       </div>
@@ -17,6 +22,7 @@ export default function Page() {
           showGenreTag: true,
           showRating: true,
         }}
+        type={`genre/${genre}`}
       />
     </>
   );
