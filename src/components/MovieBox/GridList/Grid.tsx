@@ -10,7 +10,7 @@ export type SwiperListProps = {
   displayOptions: MovieDisplayConfig;
 };
 
-export default async function MovieGrid({ movies, displayOptions }: SwiperListProps) {
+export default function MovieGrid({ movies, displayOptions }: SwiperListProps) {
   const visibleMovies = movies;
   return (
     <div className={styles.gridContainer}>

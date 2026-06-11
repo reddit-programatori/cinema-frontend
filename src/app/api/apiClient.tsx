@@ -57,7 +57,15 @@ class ApiClient {
       return {} as T;
     }
 
-    return response.json() as Promise<T>;
+    try {
+      return (await response.json()) as T;
+    } catch {
+      throw new HttpError(
+        response,
+        response.status,
+        `Invalid JSON response: ${response.status} ${response.statusText}`,
+      );
+    }
   }
 
   public get<T>(endpoint: string, options?: Omit<CustomRequestInit, "body" | "method">) {

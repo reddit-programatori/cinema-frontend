@@ -37,7 +37,7 @@ type MovieBoxProp = {
   type: string;
 };
 
-const LIST_COMPONENTS = {
+const LIST_LAYOUT_COMPONENTS = {
   slide: SwiperList,
   grid: MovieGrid,
 } as const;
@@ -65,7 +65,7 @@ export default async function MovieBox({
     rating: movie.rating,
   }));
 
-  const ListComponent = LIST_COMPONENTS[listType];
+  const ListComponent = LIST_LAYOUT_COMPONENTS[listType];
 
   if (!ListComponent) return null;
 
