@@ -10,7 +10,7 @@ export const NAV_LINKS: LinkProp[] = [
   },
   {
     label: "Uskoro",
-    href: "#",
+    href: "/soon",
   },
   {
     label: "Rezervacija",

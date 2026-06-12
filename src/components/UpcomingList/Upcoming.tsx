@@ -7,7 +7,6 @@ import IconArrow from "@/components/ui/icons/arrow-up-right.svg";
 import styles from "./Upcoming.module.css";
 
 import img1 from "./picture/movie1.jpg";
-import img2 from "./picture/movie2.jpg";
 
 type UpcomingMovieList = {
   date: string;
@@ -71,15 +70,22 @@ const upcoming: UpcomingMovieList[] = [
     ],
   },
 ];
+
+type UpcomingListProp = {
+  headerType: "main" | "second"; // better naming for later
+};
 /* better name for this component? */
-export default function UpcomingList() {
+export default function UpcomingList({ headerType }: UpcomingListProp) {
   return (
     <div>
-      <TextHeader
-        eyebrow={"Uskoro u bioskopu"}
-        title={"Šta stiže uskoro?"}
-        subtitle={"Nadolazeći filmovi u tvojom gradu. Budi prvi koji rezerviše."}
-      />
+      {headerType === "main" && (
+        <TextHeader
+          eyebrow={"Uskoro u bioskopu"}
+          title={"Šta stiže uskoro?"}
+          subtitle={"Nadolazeći filmovi u tvojo gradu. Budi prvi koji rezerviše."}
+        />
+      )}
+      {/* search  in city component */}
       {upcoming.map((movieData, index) => {
         return (
           <div key={index}>

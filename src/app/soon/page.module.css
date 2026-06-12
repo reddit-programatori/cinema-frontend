@@ -1,0 +1,10 @@
+.wrapper {
+  padding: 5rem;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.list {
+  width: 70%;
+  margin: 0 auto;
+}
