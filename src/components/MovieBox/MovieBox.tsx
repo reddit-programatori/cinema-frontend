@@ -3,7 +3,8 @@ import type { StaticImageData } from "next/image";
 import movieOne from "./picture/movie1.jpg"; /*  */
 import SwiperList from "./SwiperList/SwiperList";
 import MovieGrid from "./GridList/Grid";
-import { api } from "@/app/api/apiClient";
+
+import { Movie } from "@/api/ZodValidation";
 
 /* needs to be extracted to global */
 export type Genre = {
@@ -34,7 +35,7 @@ export type MovieDisplayConfig = {
 type MovieBoxProp = {
   listType: "slide" | "grid";
   displayOptions: MovieDisplayConfig;
-  type: string;
+  movies: Movie[];
 };
 
 const LIST_LAYOUT_COMPONENTS = {
@@ -42,32 +43,25 @@ const LIST_LAYOUT_COMPONENTS = {
   grid: MovieGrid,
 } as const;
 
-export default async function MovieBox({
-  listType,
-  displayOptions,
-  type = "/movies",
-}: MovieBoxProp) {
-  const getMovies = () => api.get<MovieItem[]>(type);
-  const movies = await getMovies();
-
+export default async function MovieBox({ listType, displayOptions, movies }: MovieBoxProp) {
   const moviesMapped: MovieItem[] = movies.map((movie) => ({
     picture: movieOne,
-    title: movie.title,
-    genres: (movie.genres || []).map((genre) => ({
+    title: movie.name,
+    genres: movie.genres.map((genre) => ({
       id: String(genre.id),
       name: genre.name,
     })),
     duration: movie.duration,
-    cinemaList: (movie.cinemaList || []).map((screening) => ({
+    cinemaList: movie.screening.map((screening) => ({
       id: String(screening.id),
-      name: screening.name,
+      name: screening.cinema,
     })),
     rating: movie.rating,
   }));
 
-  const ListComponent = LIST_LAYOUT_COMPONENTS[listType];
+  const Layout = LIST_LAYOUT_COMPONENTS[listType];
 
-  if (!ListComponent) return null;
+  if (!Layout) return null;
 
-  return <ListComponent movies={moviesMapped} displayOptions={displayOptions} />;
+  return <Layout movies={moviesMapped} displayOptions={displayOptions} />;
 }
