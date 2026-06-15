@@ -22,7 +22,7 @@ export default async function Page({
           showGenreTag: true,
           showRating: true,
         }}
-        type={`genre/${genre}`}
+        movies={[]}
       />
     </>
   );

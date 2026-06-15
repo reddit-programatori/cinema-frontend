@@ -5,8 +5,10 @@ import AiAssistantBox from "@/features/input-ai/components/AiAssistantBox";
 import MovieBox from "@/components/MovieBox/MovieBox";
 import Line from "@/components/Line/Line";
 import UpcomingList from "@/components/UpcomingList/Upcoming";
+import { getMovies } from "@/api/getMovies";
 
-export default function Home() {
+export default async function Home() {
+  const movies = await getMovies();
   return (
     <div>
       <Hero />
@@ -18,8 +20,9 @@ export default function Home() {
             showGenreTag: true,
             showRating: true,
           }}
-          type="/movies"
+          movies={movies}
         />
+
         <Genres />
         <Line mt />
         <MovieBox
@@ -28,7 +31,7 @@ export default function Home() {
             showGenreTag: false,
             showRating: false,
           }}
-          type="/movies"
+          movies={movies}
         />
         <UpcomingList />
       </div>

@@ -3,7 +3,8 @@ import type { StaticImageData } from "next/image";
 import movieOne from "./picture/movie1.jpg"; /*  */
 import SwiperList from "./SwiperList/SwiperList";
 import MovieGrid from "./GridList/Grid";
-import { getMovies } from "@/app/api/getMovies";
+import { getMovies } from "@/api/getMovies";
+import { Movie } from "@/api/ZodValidation";
 
 /* needs to be extracted to global */
 export type Genre = {
@@ -34,7 +35,7 @@ export type MovieDisplayConfig = {
 type MovieBoxProp = {
   listType: "slide" | "grid";
   displayOptions: MovieDisplayConfig;
-  type: string;
+  movies: Movie[];
 };
 
 const LIST_LAYOUT_COMPONENTS = {
@@ -42,13 +43,7 @@ const LIST_LAYOUT_COMPONENTS = {
   grid: MovieGrid,
 } as const;
 
-export default async function MovieBox({
-  listType,
-  displayOptions,
-  type = "/movies",
-}: MovieBoxProp) {
-  const movies = await getMovies(type);
-
+export default async function MovieBox({ listType, displayOptions, movies }: MovieBoxProp) {
   const moviesMapped: MovieItem[] = movies.map((movie) => ({
     picture: movieOne,
     title: movie.name,
