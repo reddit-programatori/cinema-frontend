@@ -18,6 +18,10 @@ class ApiClient {
   private defaultHeaders: HeadersInit;
 
   constructor(baseUrl: string = "", defaultHeaders: HeadersInit = {}) {
+    if (!baseUrl) {
+      throw new Error("API baseUrl is required");
+    }
+
     this.baseUrl = baseUrl;
     this.defaultHeaders = {
       "Content-Type": "application/json",
@@ -26,8 +30,8 @@ class ApiClient {
   }
 
   private async request<T>(endpoint: string, options: CustomRequestInit = {}): Promise<T> {
-    const { params, headers, body, ...customConfig } = options;
-
+    const { params, headers, body: rawBody, ...customConfig } = options as CustomRequestInit;
+    const body = rawBody as BodyInit | Record<string, unknown> | null | undefined;
     let url = `${this.baseUrl}${endpoint}`;
     if (params) {
       const searchParams = new URLSearchParams();
@@ -36,9 +40,9 @@ class ApiClient {
     }
 
     const config: RequestInit = {
+      ...customConfig,
       method: customConfig.method || "GET",
       headers: { ...this.defaultHeaders, ...headers },
-      ...customConfig,
     };
 
     if (body && typeof body === "object" && !(body instanceof FormData)) {
@@ -54,7 +58,7 @@ class ApiClient {
     }
 
     if (response.status === 204) {
-      return {} as T;
+      return undefined as T;
     }
 
     try {
@@ -74,7 +78,7 @@ class ApiClient {
 
   public post<T>(
     endpoint: string,
-    body?: unknown,
+    body?: BodyInit | null | undefined,
     options?: Omit<CustomRequestInit, "body" | "method">,
   ) {
     return this.request<T>(endpoint, { ...options, method: "POST", body });
@@ -82,7 +86,7 @@ class ApiClient {
 
   public put<T>(
     endpoint: string,
-    body?: unknown,
+    body?: BodyInit | null | undefined,
     options?: Omit<CustomRequestInit, "body" | "method">,
   ) {
     return this.request<T>(endpoint, { ...options, method: "PUT", body });

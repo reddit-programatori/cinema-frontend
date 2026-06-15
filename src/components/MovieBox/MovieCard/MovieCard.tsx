@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./MovieCard.module.css";
-import { MovieDisplayConfig, MovieItem } from "../MovieBox";
+import { Cinema, MovieDisplayConfig, MovieItem } from "../MovieBox";
 
 type MovieCardProps = {
   movie: MovieItem;
@@ -28,7 +28,7 @@ export default function MovieCard({ movie, displayOptions }: MovieCardProps) {
 
       <p className={styles.movieTitle}>{movie.title}</p>
 
-      <div className={styles.cinemaText}>{movie.cinemaList[0]?.name}</div>
+      <div className={styles.cinemaText}>{renderCinemaList({ cinemas: movie.cinemaList })}</div>
 
       {displayOptions.showRating && (
         <div className={styles.rating}>
@@ -42,3 +42,20 @@ export default function MovieCard({ movie, displayOptions }: MovieCardProps) {
     </div>
   );
 }
+
+const MAX_VISIBLE_CINEMAS = 3;
+const renderCinemaList = ({
+  cinemas,
+  maxVisible = MAX_VISIBLE_CINEMAS,
+}: {
+  cinemas: Cinema[];
+  maxVisible?: number;
+}) => {
+  const cinemaNames = cinemas.map((cinema) => cinema.name);
+
+  if (cinemas.length <= maxVisible) {
+    return cinemaNames.join(", ");
+  }
+
+  return `${cinemaNames.slice(0, maxVisible).join(", ")}...`;
+};
