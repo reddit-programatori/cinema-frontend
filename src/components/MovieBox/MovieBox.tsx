@@ -3,7 +3,7 @@ import type { StaticImageData } from "next/image";
 import movieOne from "./picture/movie1.jpg"; /*  */
 import SwiperList from "./SwiperList/SwiperList";
 import MovieGrid from "./GridList/Grid";
-import { getMovies } from "@/api/getMovies";
+
 import { Movie } from "@/api/ZodValidation";
 
 /* needs to be extracted to global */
