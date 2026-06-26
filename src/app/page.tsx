@@ -33,7 +33,7 @@ export default async function Home() {
           }}
           movies={movies}
         />
-        <UpcomingList />
+        <UpcomingList headerType={"main"} />
       </div>
     </div>
   );
